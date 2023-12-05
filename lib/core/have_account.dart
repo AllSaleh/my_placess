@@ -1,0 +1,3 @@
+isHaveAccount(){
+  return true;
+}
