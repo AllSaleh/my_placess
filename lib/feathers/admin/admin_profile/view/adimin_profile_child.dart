@@ -21,10 +21,18 @@ class AdimnProfileChild extends StatelessWidget {
               }),
           const CustomDriver(),
           ListTileProfile(
-              image: AppAssets.calender, title: 'Calendar', onTap: () {}),
+              image: AppAssets.calender,
+              title: 'Calendar',
+              onTap: () {
+                GoRouter.of(context).pushNamed(Routers.calender);
+              }),
           const CustomDriver(),
           ListTileProfile(
-              image: AppAssets.luck, title: 'Change password', onTap: () {}),
+              image: AppAssets.luck,
+              title: 'Change password',
+              onTap: () {
+                GoRouter.of(context).pushNamed(Routers.changepassword);
+              }),
         ],
       ),
     );

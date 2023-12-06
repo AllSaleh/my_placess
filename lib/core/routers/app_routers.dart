@@ -4,10 +4,13 @@ import 'package:project/core/routers/go_router.dart';
 import 'package:project/core/routers/routers_names.dart';
 import 'package:project/feathers/admin/review/view/display_review.dart';
 import 'package:project/feathers/admin/review/view/review.dart';
+import 'package:project/feathers/auth/change_password/view/changepassword.dart';
 import 'package:project/feathers/auth/forgetpassword/view/forget_password.dart';
 import 'package:project/feathers/auth/forgetpassword/otp/otp.dart';
+import 'package:project/feathers/auth/rest_password/view/rest_password.dart';
 import 'package:project/feathers/auth/sign_in/view/sign_in.dart';
 import 'package:project/feathers/auth/sign_up/view/sign_up.dart';
+import 'package:project/feathers/calender/view/calender.dart';
 import 'package:project/feathers/categorise/view/categorise.dart';
 import 'package:project/feathers/detils/view/detils.dart';
 import 'package:project/feathers/home_screen/view/homescreen.dart';
@@ -29,6 +32,12 @@ abstract class AppRouts {
     goRouter(path: '/${Routers.displayreview}', page: const DisplayReview(), name: Routers.displayreview),
     goRouter(path: '/${Routers.categorise}', page: const Categorise(), name: Routers.categorise),
     goRouter(path: '/${Routers.detils}', page: const Detils(), name: Routers.detils),
+    goRouter(path: '/${Routers.changepassword}', page: const ChangePassword(), name: Routers.changepassword),
+    goRouter(path: '/${Routers.restpassword}', page: const RestPassword(), name: Routers.restpassword),
+    goRouter(path: '/${Routers.calender}', page: const Calender(), name: Routers.calender),
+
+
+
 
 
 

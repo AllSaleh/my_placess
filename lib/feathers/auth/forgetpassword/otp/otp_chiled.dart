@@ -32,7 +32,7 @@ class OtpChild extends StatelessWidget {
         alignment: Alignment.center,
         child: AuthButton(
             onPressed: () {
-              GoRouter.of(context).pushReplacementNamed(Routers.signIn);
+              GoRouter.of(context).pushReplacementNamed(Routers.restpassword);
             },
             title: 'Confirem',
             color: whiteColor,
