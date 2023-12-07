@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project/core/const.dart';
-
+import 'package:project/feathers/faviorte/cubit/faviorte_cubit.dart';
+import 'package:project/feathers/faviorte/data/faviorte_model/faviorte_model.dart';
 
 class FaviorteItem extends StatelessWidget {
-  const FaviorteItem({super.key});
+  final FaviorteModel faviorteModel;
+  const FaviorteItem({super.key, required this.faviorteModel});
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +21,21 @@ class FaviorteItem extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            const Text(
-              'Jeddah Waterfront',
-              style: TextStyle(fontSize: 18),
+            Text(
+              faviorteModel.name.toString(),
+              style: const TextStyle(fontSize: 18),
             ),
             IconButton(
-                onPressed: () {},
-                icon:  const Icon(
-               Icons.favorite_border_outlined,
+                onPressed: () {
+                  BlocProvider.of<FaviorteCubit>(context)
+                      .deletefaviorte(faviorteModel.id!);
+                },
+                icon: Icon(
+                  Icons.favorite_border_outlined,
                   size: 30,
-                  color: primaryColor,
+                  color: faviorteModel.isFavorites == true
+                      ? primaryColor
+                      : blackColor,
                 ))
           ],
         ),

@@ -18,9 +18,8 @@ class RestPasswordBodyView extends StatelessWidget {
         title: 'Reset your\npassword',
       ),
       const SecoundContiner(
-          child: RestChild(),
-        ),
-      
+        child: RestChild(),
+      ),
     ]);
   }
 }

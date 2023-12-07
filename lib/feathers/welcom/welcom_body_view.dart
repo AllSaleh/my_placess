@@ -27,10 +27,10 @@ class WelocmBodyView extends StatelessWidget {
         Positioned(
             bottom: MediaQuery.of(context).size.height / 10,
             child: Column(
-              // mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 AuthButton(
                   onPressed: () {
+                    //
                     GoRouter.of(context).pushNamed(Routers.signIn);
                   },
                   title: 'Sign in',
@@ -62,7 +62,6 @@ class WelocmBodyView extends StatelessWidget {
                           fontSize: 25,
                           fontWeight: FontWeight.bold),
                     ))
-                
               ],
             )),
       ],

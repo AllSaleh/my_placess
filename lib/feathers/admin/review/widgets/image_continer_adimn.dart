@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ImageContinerAdmin extends StatelessWidget {
-  const ImageContinerAdmin({super.key});
+  const ImageContinerAdmin({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

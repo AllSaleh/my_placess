@@ -5,8 +5,6 @@ import 'package:project/core/app_assets.dart';
 import 'package:project/core/const.dart';
 import 'package:project/feathers/home_screen/cubit/home_screen_cubit.dart';
 
-
-
 class HomeBottomBar extends StatelessWidget {
   const HomeBottomBar({super.key});
 
@@ -19,9 +17,9 @@ class HomeBottomBar extends StatelessWidget {
         return BottomNavigationBar(
             onTap: (index) {
               BlocProvider.of<HomeScreenCubit>(context).chaneIndext(index);
-      
             },
-            currentIndex: BlocProvider.of<HomeScreenCubit>(context).currentIndex,
+            currentIndex:
+                BlocProvider.of<HomeScreenCubit>(context).currentIndex,
             backgroundColor: whiteColor,
             type: BottomNavigationBarType.fixed,
             showSelectedLabels: false,

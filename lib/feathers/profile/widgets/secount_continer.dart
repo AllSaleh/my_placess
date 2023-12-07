@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class SecountContinerProflie extends StatelessWidget {
   final Widget child;
   const SecountContinerProflie({super.key, required this.child});
@@ -13,7 +12,7 @@ class SecountContinerProflie extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         color: const Color(0xffF6F5F5),
       ),
-      child:child,
+      child: child,
     );
   }
 }

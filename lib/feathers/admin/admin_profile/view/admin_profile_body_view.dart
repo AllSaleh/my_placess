@@ -7,6 +7,7 @@ import 'package:project/feathers/admin/admin_profile/view/adimin_profile_child.d
 import 'package:project/feathers/profile/widgets/profile_stack.dart';
 import 'package:project/feathers/profile/widgets/secount_continer.dart';
 import 'package:project/feathers/profile/widgets/top_text_profile.dart';
+import 'package:project/main.dart';
 
 class AdminProfileBodyView extends StatelessWidget {
   const AdminProfileBodyView({super.key});
@@ -38,6 +39,7 @@ class AdminProfileBodyView extends StatelessWidget {
           ),
           AuthButton(
               onPressed: () {
+                sharedPref.clear();
                 GoRouter.of(context).pushReplacementNamed(Routers.welocm);
               },
               title: 'Log Out',

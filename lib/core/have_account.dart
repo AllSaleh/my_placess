@@ -1,3 +1,0 @@
-isHaveAccount(){
-  return true;
-}

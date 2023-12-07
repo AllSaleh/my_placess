@@ -48,7 +48,7 @@ class FogretChild extends StatelessWidget {
                   controller:
                       BlocProvider.of<ForgetPasswordCubit>(context).email,
                   validator: (email) {
-                    return validation('email', email,6,35);
+                    return validation('email', email, 6, 35);
                   },
                 ),
                 const SizedBox(

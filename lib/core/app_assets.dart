@@ -25,10 +25,8 @@ abstract class AppAssets {
   static const String test2 = '$baseUrl/test2.png';
   static const String test3 = '$baseUrl/test3.png';
 
-
   //profile
   static const String calender = '$baseUrl/calender.png';
   static const String luck = '$baseUrl/luck.png';
   static const String reviwer = '$baseUrl/reviewr.png';
-
 }

@@ -4,6 +4,7 @@ import 'package:project/core/const.dart';
 class CustomTextFiled extends StatelessWidget {
   final String labe;
   final double padding;
+  final int maxLines;
   final String? Function(String?) validator;
   final TextEditingController controller;
   const CustomTextFiled(
@@ -11,13 +12,15 @@ class CustomTextFiled extends StatelessWidget {
       required this.labe,
       required this.controller,
       required this.validator,
-      this.padding = 0});
+      this.padding = 0,
+      this.maxLines = 1});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: padding),
       child: TextFormField(
+        maxLines: maxLines,
         validator: validator,
         controller: controller,
         cursorColor: primaryColor,

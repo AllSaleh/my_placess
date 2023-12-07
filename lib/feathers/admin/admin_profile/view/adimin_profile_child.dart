@@ -4,6 +4,7 @@ import 'package:project/core/app_assets.dart';
 import 'package:project/core/routers/routers_names.dart';
 import 'package:project/feathers/profile/widgets/custom_driver.dart';
 import 'package:project/feathers/profile/widgets/listtile_profile.dart';
+import 'package:project/main.dart';
 
 class AdimnProfileChild extends StatelessWidget {
   const AdimnProfileChild({super.key});
@@ -31,6 +32,7 @@ class AdimnProfileChild extends StatelessWidget {
               image: AppAssets.luck,
               title: 'Change password',
               onTap: () {
+                sharedPref.setBool('change', true);
                 GoRouter.of(context).pushNamed(Routers.changepassword);
               }),
         ],

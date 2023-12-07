@@ -4,7 +4,6 @@ import 'package:project/feathers/auth/sign_in/widgets/image_continer.dart';
 import 'package:project/feathers/auth/widgets/secound_continer.dart';
 import 'package:project/feathers/auth/widgets/top_text.dart';
 
-
 class OtpBodyView extends StatelessWidget {
   const OtpBodyView({super.key});
 

@@ -1,18 +1,16 @@
-
 import 'package:flutter/material.dart';
 import 'package:project/core/const.dart';
 
 class WillPopActionButton extends StatelessWidget {
-
   final VoidCallback onPressed;
   final String title;
   final Color color;
-  const WillPopActionButton(
-      {super.key,
-      required this.onPressed,
-      required this.title,
-      required this.color,
-     });
+  const WillPopActionButton({
+    super.key,
+    required this.onPressed,
+    required this.title,
+    required this.color,
+  });
 
   @override
   Widget build(BuildContext context) {

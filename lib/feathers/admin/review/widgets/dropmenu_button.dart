@@ -12,7 +12,7 @@ class CustomDropMenuButton extends StatelessWidget {
         child: DropdownButton(
             isExpanded: true,
             borderRadius: BorderRadius.circular(20),
-            value: 2,
+            // value: 2,
             hint: const Text('Select Categorie'),
             items: const [
               DropdownMenuItem(
@@ -32,9 +32,7 @@ class CustomDropMenuButton extends StatelessWidget {
                 child: Text('Restaurants & cafes'),
               ),
             ],
-            onChanged: (value) {
-           
-            }),
+            onChanged: (val) {}),
       ),
     );
   }

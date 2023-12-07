@@ -16,10 +16,7 @@ class HaveAccount extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        title1
-
-  
-        ,
+        title1,
         textAlign: TextAlign.end,
       ),
       subtitle: Align(

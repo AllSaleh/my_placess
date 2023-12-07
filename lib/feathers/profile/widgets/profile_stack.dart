@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/core/app_assets.dart';
+import 'package:project/core/functions.dart';
 import 'package:project/feathers/profile/widgets/account_detils.dart';
 import 'package:project/feathers/profile/widgets/account_image.dart';
 
@@ -31,7 +32,7 @@ class ProfileStack extends StatelessWidget {
           ),
           AccountImage(
             haveImage: haveImage,
-            image: AppAssets.female,
+            image: gender() == 'mail' ? AppAssets.male : AppAssets.female,
           ),
           AccountDetils(name: name, email: email),
           Positioned(

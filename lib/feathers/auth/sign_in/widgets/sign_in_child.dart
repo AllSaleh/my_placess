@@ -25,7 +25,7 @@ class SignInChild extends StatelessWidget {
           children: [
             CustomTextFiled(
                 validator: (email) {
-                  return validation('email', email,6,35);
+                  return validation('email', email, 6, 35);
                 },
                 labe: 'Email',
                 controller: BlocProvider.of<SignInCubit>(context).email),
@@ -34,7 +34,7 @@ class SignInChild extends StatelessWidget {
             ),
             CustomTextFiled(
                 validator: (password) {
-                  return validation('password', password,6,20);
+                  return validation('password', password, 6, 20);
                 },
                 labe: 'Password',
                 controller: BlocProvider.of<SignInCubit>(context).password),
@@ -51,8 +51,8 @@ class SignInChild extends StatelessWidget {
                   GoRouter.of(context).pushReplacementNamed(Routers.home);
                 }
                 if (state is SignInNotExisting) {
-                  ScaffoldMessenger.of(context)
-                      .showSnackBar(customSnackBar(title: 'Incorrect Email'));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      customSnackBar(title: 'Incorrect Email Or Password'));
                 } else if (state is SignInFailuer) {
                   ScaffoldMessenger.of(context).showSnackBar(
                       customSnackBar(title: 'Ther is A proplem Try Again'));
@@ -65,18 +65,12 @@ class SignInChild extends StatelessWidget {
                         alignment: Alignment.center,
                         child: AuthButton(
                             onPressed: () {
-                              // print(isAdimn());
                               BlocProvider.of<SignInCubit>(context).signIn();
                             },
                             title: 'Sign in',
                             color: whiteColor,
                             backgroundColor: primaryColor),
                       );
-                // if (state is SignInLoading) {
-                //   return const ;
-                // } else {
-                //   return ;
-                // }
               },
             ),
             const SizedBox(

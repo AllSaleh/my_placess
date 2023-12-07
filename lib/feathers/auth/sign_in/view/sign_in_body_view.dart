@@ -13,7 +13,6 @@ class SigninBodyView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       clipBehavior: Clip.none,
-
       children: [
         SizedBox(
           height: MediaQuery.of(context).size.height,

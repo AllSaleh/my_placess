@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:project/core/const.dart';
+import 'package:project/core/functions.dart';
 import 'package:project/core/routers/routers_names.dart';
 import 'package:project/core/snackbar.dart';
 import 'package:project/core/validation.dart';
@@ -52,7 +53,11 @@ class RestChild extends StatelessWidget {
                   ScaffoldMessenger.of(context).showSnackBar(
                       customSnackBar(title: 'Password Not Match'));
                 } else if (state is RestPasswordSucsess) {
-                  GoRouter.of(context).pushReplacementNamed(Routers.signIn);
+                  if (isChange() == true) {
+                    GoRouter.of(context).pushReplacementNamed(Routers.home);
+                  } else {
+                    GoRouter.of(context).pushReplacementNamed(Routers.signIn);
+                  }
                 } else if (state is RestPasswordFailure) {
                   ScaffoldMessenger.of(context).showSnackBar(
                       customSnackBar(title: 'Ther is A proplem Try Again'));
@@ -69,7 +74,6 @@ class RestChild extends StatelessWidget {
                     alignment: Alignment.center,
                     child: AuthButton(
                         onPressed: () {
-                          // print(sharedPref.getString('code'));
                           BlocProvider.of<RestPasswordCubit>(context)
                               .restPassword();
                         },

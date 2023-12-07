@@ -15,20 +15,21 @@ import 'package:project/feathers/detils/view/detils.dart';
 import 'package:project/feathers/home_screen/view/homescreen.dart';
 
 import 'package:project/feathers/welcom/welcom.dart';
+import 'package:project/main.dart';
 // import 'package:project/main.dart';
 
 abstract class AppRouts {
   static final routs = GoRouter(routes: [
     GoRoute(
-      // redirect: (context, state) {
-      //   if (sharedPref.getInt('id') != null) {
-      //     return '/${Routers.home}';
-      //   }
-      //   return null;
-      // },
-      path: Routers.welocm,
-      builder: (context, state) => const Welcom(),name: Routers.welocm
-    ),
+        redirect: (context, state) {
+          if (sharedPref.getInt('id') != null) {
+            return '/${Routers.home}';
+          }
+          return null;
+        },
+        path: Routers.welocm,
+        builder: (context, state) => const Welcom(),
+        name: Routers.welocm),
     goRouter(
         path: '/${Routers.signIn}', page: const SignIn(), name: Routers.signIn),
     goRouter(

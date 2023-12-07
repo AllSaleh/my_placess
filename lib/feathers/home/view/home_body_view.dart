@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/core/const.dart';
+
 import 'package:project/feathers/home/widgets/gender_icon.dart';
 import 'package:project/feathers/home/widgets/home_listview.dart';
 import 'package:project/feathers/home/widgets/row_home.dart';
@@ -8,7 +9,7 @@ class HomeBodyView extends StatelessWidget {
   const HomeBodyView({super.key});
 
   @override
-  Widget build(BuildContext context) { 
+  Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       child: const Column(

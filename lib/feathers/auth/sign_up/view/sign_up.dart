@@ -8,8 +8,8 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider
-    (create: (context) => SignUpCubit(),
+    return BlocProvider(
+      create: (context) => SignUpCubit(),
       child: const Scaffold(
         body: SafeArea(
           child: SignUpBodyView(),

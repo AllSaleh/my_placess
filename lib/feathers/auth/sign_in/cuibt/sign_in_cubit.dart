@@ -24,6 +24,11 @@ class SignInCubit extends Cubit<SignInState> {
         }, Applinks.login);
         if (response['success'] == true) {
           sharedPref.setInt('id', response['data']['user']['id']);
+          sharedPref.setString('token', response['data']['token']);
+
+          sharedPref.setString('name', response['data']['user']['name']);
+          sharedPref.setString('email', response['data']['user']['email']);
+
           if (response['data']['user']['is_admin'] == false) {
             sharedPref.setBool('adimn', false);
           } else {

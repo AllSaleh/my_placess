@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:project/core/const.dart';
+
 import 'package:project/core/routers/routers_names.dart';
 import 'package:project/feathers/auth/widgets/auth_button.dart';
 import 'package:project/feathers/profile/user_profile/view/user_profile_child.dart';
@@ -26,8 +27,8 @@ class UserProfileBodyView extends StatelessWidget {
           ),
           ProfileStack(
             onPressedEdite: () {},
-            name: 'Eman',
-            email: 'JhonDoe1@gmail.com',
+            name: sharedPref.getString('name').toString(),
+            email: sharedPref.getString('email').toString(),
           ),
           const SizedBox(
             height: 28,

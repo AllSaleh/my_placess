@@ -16,14 +16,14 @@ class DetilsStack extends StatelessWidget {
       child: Stack(
         alignment: Alignment.topCenter,
         children: [
-         const DetilsImages(),
+          const DetilsImages(),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 13),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CustomContinerDetils(
-                  color: whiteColor,
+                    color: whiteColor,
                     onTap: () {
                       GoRouter.of(context).pop();
                     },

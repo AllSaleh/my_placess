@@ -32,7 +32,6 @@ class SignUpChild extends StatelessWidget {
           ScaffoldMessenger.of(context).showSnackBar(
               customSnackBar(title: 'Ther is A proplem Try Again'));
         }
-        
       },
       builder: (context, state) {
         return CustomScrollView(
@@ -46,7 +45,7 @@ class SignUpChild extends StatelessWidget {
                         labe: 'Name',
                         controller: BlocProvider.of<SignUpCubit>(context).name,
                         validator: (name) {
-                          return validation('name', name,3,20);
+                          return validation('name', name, 3, 20);
                         }),
                     const SizedBox(
                       height: 10,
@@ -55,7 +54,7 @@ class SignUpChild extends StatelessWidget {
                         labe: 'Email',
                         controller: BlocProvider.of<SignUpCubit>(context).email,
                         validator: (email) {
-                          return validation('email', email,6,30);
+                          return validation('email', email, 6, 30);
                         }),
                     const SizedBox(
                       height: 10,
@@ -65,7 +64,7 @@ class SignUpChild extends StatelessWidget {
                         controller:
                             BlocProvider.of<SignUpCubit>(context).password,
                         validator: (password) {
-                          return validation('password', password,6,20);
+                          return validation('password', password, 6, 20);
                         }),
                     const SizedBox(
                       height: 20,
@@ -75,7 +74,7 @@ class SignUpChild extends StatelessWidget {
                         controller:
                             BlocProvider.of<SignUpCubit>(context).password2,
                         validator: (password) {
-                          return validation('password', password,6,20);
+                          return validation('password', password, 6, 20);
                         }),
                     const SizedBox(
                       height: 10,

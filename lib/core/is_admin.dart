@@ -1,1 +1,1 @@
-isAdimn(){}
+isAdimn() {}
