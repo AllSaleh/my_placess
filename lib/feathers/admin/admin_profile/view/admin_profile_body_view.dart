@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:project/core/const.dart';
+import 'package:project/core/routers/routers_names.dart';
 import 'package:project/feathers/auth/widgets/auth_button.dart';
 import 'package:project/feathers/admin/admin_profile/view/adimin_profile_child.dart';
 import 'package:project/feathers/profile/widgets/profile_stack.dart';
@@ -35,7 +37,9 @@ class AdminProfileBodyView extends StatelessWidget {
             height: 60,
           ),
           AuthButton(
-              onPressed: () {},
+              onPressed: () {
+                GoRouter.of(context).pushReplacementNamed(Routers.welocm);
+              },
               title: 'Log Out',
               color: whiteColor,
               backgroundColor: primaryColor)

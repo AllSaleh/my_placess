@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project/feathers/auth/forgetpassword/cubit/forget_password_cubit.dart';
 import 'package:project/feathers/auth/forgetpassword/otp/otp_body_view.dart';
 
 class Otp extends StatelessWidget {
@@ -6,9 +8,12 @@ class Otp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(
-        child: OtpBodyView(),
+    return BlocProvider(
+      create: (context) => ForgetPasswordCubit(),
+      child: const Scaffold(
+        body: SafeArea(
+          child: OtpBodyView(),
+        ),
       ),
     );
   }

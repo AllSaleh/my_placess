@@ -1,4 +1,3 @@
-
 import 'package:go_router/go_router.dart';
 import 'package:project/core/routers/go_router.dart';
 import 'package:project/core/routers/routers_names.dart';
@@ -16,41 +15,54 @@ import 'package:project/feathers/detils/view/detils.dart';
 import 'package:project/feathers/home_screen/view/homescreen.dart';
 
 import 'package:project/feathers/welcom/welcom.dart';
+// import 'package:project/main.dart';
 
 abstract class AppRouts {
   static final routs = GoRouter(routes: [
     GoRoute(
-      path: '/',
-      builder: (context, state) => const Welcom(),
+      // redirect: (context, state) {
+      //   if (sharedPref.getInt('id') != null) {
+      //     return '/${Routers.home}';
+      //   }
+      //   return null;
+      // },
+      path: Routers.welocm,
+      builder: (context, state) => const Welcom(),name: Routers.welocm
     ),
-    goRouter(path: '/${Routers.signIn}', page: const SignIn(), name: Routers.signIn),
-    goRouter(path: '/${Routers.signUp}', page: const SignUp(), name: Routers.signUp),
-    goRouter(path: '/${Routers.forgetPassword}', page: const ForgetPassword(), name: Routers.forgetPassword),
+    goRouter(
+        path: '/${Routers.signIn}', page: const SignIn(), name: Routers.signIn),
+    goRouter(
+        path: '/${Routers.signUp}', page: const SignUp(), name: Routers.signUp),
+    goRouter(
+        path: '/${Routers.forgetPassword}',
+        page: const ForgetPassword(),
+        name: Routers.forgetPassword),
     goRouter(path: '/${Routers.otp}', page: const Otp(), name: Routers.otp),
-    goRouter(path: '/${Routers.home}', page: const HomeScreen(), name: Routers.home),
-    goRouter(path: '/${Routers.review}', page: const Review(), name: Routers.review),
-    goRouter(path: '/${Routers.displayreview}', page: const DisplayReview(), name: Routers.displayreview),
-    goRouter(path: '/${Routers.categorise}', page: const Categorise(), name: Routers.categorise),
-    goRouter(path: '/${Routers.detils}', page: const Detils(), name: Routers.detils),
-    goRouter(path: '/${Routers.changepassword}', page: const ChangePassword(), name: Routers.changepassword),
-    goRouter(path: '/${Routers.restpassword}', page: const RestPassword(), name: Routers.restpassword),
-    goRouter(path: '/${Routers.calender}', page: const Calender(), name: Routers.calender),
-
-
-
-
-
-
-
-
-
-
-
-    
-   
-
-    
-
- 
+    goRouter(
+        path: '/${Routers.home}', page: const HomeScreen(), name: Routers.home),
+    goRouter(
+        path: '/${Routers.review}', page: const Review(), name: Routers.review),
+    goRouter(
+        path: '/${Routers.displayreview}',
+        page: const DisplayReview(),
+        name: Routers.displayreview),
+    goRouter(
+        path: '/${Routers.categorise}',
+        page: const Categorise(),
+        name: Routers.categorise),
+    goRouter(
+        path: '/${Routers.detils}', page: const Detils(), name: Routers.detils),
+    goRouter(
+        path: '/${Routers.changepassword}',
+        page: const ChangePassword(),
+        name: Routers.changepassword),
+    goRouter(
+        path: '/${Routers.restpassword}',
+        page: const RestPassword(),
+        name: Routers.restpassword),
+    goRouter(
+        path: '/${Routers.calender}',
+        page: const Calender(),
+        name: Routers.calender),
   ]);
 }

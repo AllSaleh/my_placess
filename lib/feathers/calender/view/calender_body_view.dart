@@ -12,7 +12,7 @@ class CalenderBodyView extends StatefulWidget {
 }
 
 class _CalenderBodyViewState extends State<CalenderBodyView> {
-  DateTime dateTime = DateTime.now();
+ 
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -29,16 +29,16 @@ class _CalenderBodyViewState extends State<CalenderBodyView> {
                 titleCentered: true,
               ),
               calendarStyle: const CalendarStyle(
+              
                 markerDecoration: BoxDecoration(color: blackColor),
               ),
-              selectedDayPredicate: (day) => isSameDay(dateTime, day),
-              onDaySelected: (selectedDay, focusedDay) {
-                dateTime = selectedDay;
-                setState(() {});
-                print(selectedDay);
-                print(focusedDay);
-              },
-              focusedDay: dateTime,
+              // selectedDayPredicate: (day) => isSameDay(dateTime, day),
+              // onDaySelected: (selectedDay, focusedDay) {
+              //   dateTime = selectedDay;
+              //   setState(() {});
+               
+              // },
+              focusedDay: DateTime.now(),
               firstDay: DateTime.now(),
               lastDay: DateTime.utc(2030)),
         ),

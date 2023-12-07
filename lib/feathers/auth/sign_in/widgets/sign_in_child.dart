@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:project/core/const.dart';
+
 import 'package:project/core/routers/routers_names.dart';
+import 'package:project/core/snackbar.dart';
 import 'package:project/core/validation.dart';
+import 'package:project/core/widgets/custom_loading.dart';
 import 'package:project/feathers/auth/sign_in/cuibt/sign_in_cubit.dart';
 import 'package:project/feathers/auth/sign_in/widgets/forgetpass_text.dart';
 import 'package:project/feathers/auth/widgets/auth_button.dart';
@@ -22,7 +25,7 @@ class SignInChild extends StatelessWidget {
           children: [
             CustomTextFiled(
                 validator: (email) {
-                  return validation('email', email);
+                  return validation('email', email,6,35);
                 },
                 labe: 'Email',
                 controller: BlocProvider.of<SignInCubit>(context).email),
@@ -31,10 +34,10 @@ class SignInChild extends StatelessWidget {
             ),
             CustomTextFiled(
                 validator: (password) {
-                  return validation('password', password);
+                  return validation('password', password,6,20);
                 },
                 labe: 'Password',
-                controller: TextEditingController()),
+                controller: BlocProvider.of<SignInCubit>(context).password),
             const SizedBox(
               height: 24,
             ),
@@ -42,16 +45,39 @@ class SignInChild extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Align(
-              alignment: Alignment.center,
-              child: AuthButton(
-                  onPressed: () {
-                    GoRouter.of(context).pushReplacementNamed(Routers.home);
-                    // BlocProvider.of<SignInCubit>(context).signIn();
-                  },
-                  title: 'Sign in',
-                  color: whiteColor,
-                  backgroundColor: primaryColor),
+            BlocConsumer<SignInCubit, SignInState>(
+              listener: (context, state) {
+                if (state is SignInSucsess) {
+                  GoRouter.of(context).pushReplacementNamed(Routers.home);
+                }
+                if (state is SignInNotExisting) {
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(customSnackBar(title: 'Incorrect Email'));
+                } else if (state is SignInFailuer) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      customSnackBar(title: 'Ther is A proplem Try Again'));
+                }
+              },
+              builder: (context, state) {
+                return state is SignInLoading
+                    ? const CustomLoading()
+                    : Align(
+                        alignment: Alignment.center,
+                        child: AuthButton(
+                            onPressed: () {
+                              // print(isAdimn());
+                              BlocProvider.of<SignInCubit>(context).signIn();
+                            },
+                            title: 'Sign in',
+                            color: whiteColor,
+                            backgroundColor: primaryColor),
+                      );
+                // if (state is SignInLoading) {
+                //   return const ;
+                // } else {
+                //   return ;
+                // }
+              },
             ),
             const SizedBox(
               height: 60,

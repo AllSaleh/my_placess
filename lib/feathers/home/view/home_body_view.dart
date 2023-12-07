@@ -8,7 +8,7 @@ class HomeBodyView extends StatelessWidget {
   const HomeBodyView({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       child: const Column(

@@ -1,5 +1,7 @@
 abstract class Routers{
 
+static const String welocm='/';
+
 static const String signIn='signIn';
 static const String signUp='signUp';
 static const String forgetPassword='forgetPassword';

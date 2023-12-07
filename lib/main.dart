@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:project/core/routers/app_routers.dart';
 
-void main() {
+
+late SharedPreferences sharedPref;
+
+
+void main()async {
+   WidgetsFlutterBinding.ensureInitialized();
+  sharedPref = await SharedPreferences.getInstance();
   runApp(const MyApp());
 }
 

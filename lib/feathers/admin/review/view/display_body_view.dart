@@ -25,42 +25,42 @@ class DisplayBoddyView extends StatelessWidget {
                 labe: 'Name',
                 controller: TextEditingController(),
                 validator: (name) {
-                  return validation('name', name);
+                  return validation('name', name,3,20);
                 }),
             CustomTextFiled(
                 padding: 15,
                 labe: 'Type',
                 controller: TextEditingController(),
                 validator: (type) {
-                  return validation('type', type);
+                  return validation('type', type,3,20);
                 }),
             CustomTextFiled(
                 padding: 15,
                 labe: 'Description',
                 controller: TextEditingController(),
                 validator: (description) {
-                  return validation('Description', description);
+                  return validation('Description', description,10,300);
                 }),
             CustomTextFiled(
                 padding: 15,
                 labe: 'Google maps Link',
                 controller: TextEditingController(),
                 validator: (link) {
-                  return validation('link', link);
+                  return validation('link', link,6,200);
                 }),
             CustomTextFiled(
                 padding: 15,
                 labe: 'Phone .No',
                 controller: TextEditingController(),
                 validator: (phone) {
-                  return validation('phone', phone);
+                  return validation('phone', phone,9,15);
                 }),
             CustomTextFiled(
                 padding: 15,
                 labe: 'Rating',
                 controller: TextEditingController(),
                 validator: (rating) {
-                  return validation('rating', rating);
+                  return validation('rating', rating,1,8);
                 }),
             const SizedBox(
               height: 20,

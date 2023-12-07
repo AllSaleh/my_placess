@@ -28,7 +28,7 @@ class ChangePassChild extends StatelessWidget {
           labe: 'Email',
           controller: TextEditingController(),
           validator: (email) {
-            return validation('email', email);
+            return validation('email', email,6,35);
           },
         ),
         const SizedBox(
