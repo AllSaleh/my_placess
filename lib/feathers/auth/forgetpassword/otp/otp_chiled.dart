@@ -39,7 +39,7 @@ class OtpChild extends StatelessWidget {
       BlocConsumer<ForgetPasswordCubit, ForgetPasswordState>(
         listener: (context, state) {
           if (state is ForgetPasswordSucsess) {
-            print('object');
+          
             GoRouter.of(context).pushNamed(Routers.restpassword);
           } else if (state is ForgetPasswordFialdOtp) {
             ScaffoldMessenger.of(context).showSnackBar(
