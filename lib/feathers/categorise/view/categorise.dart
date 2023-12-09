@@ -19,6 +19,6 @@ class Categorise extends StatelessWidget {
               ),
             ),
           )
-        : const NotHaveAccount();
+        :const Scaffold(body:  NotHaveAccount());
   }
 }

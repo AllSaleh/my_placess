@@ -15,7 +15,7 @@ class DisplayBoddyView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ApprovingCubit, ApprovingState>(
       builder: (context, state) {
-        if (state is ApprovingLoading) {
+        if (state is ApprovingLoading || state is ApprovingLoading2) {
           return const CustomLoading();
         } else if (state is ApprovingSucess) {
           return Container(

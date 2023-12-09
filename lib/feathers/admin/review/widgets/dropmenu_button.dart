@@ -7,6 +7,8 @@ class CustomDropMenuButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var cuibt = BlocProvider.of<ApprovingCubit>(context);
+
     return BlocBuilder<ApprovingCubit, ApprovingState>(
       builder: (context, state) {
         return Align(
@@ -36,7 +38,9 @@ class CustomDropMenuButton extends StatelessWidget {
                     child: Text('Restaurants & cafes'),
                   ),
                 ],
-                onChanged: (val) {}),
+                onChanged: (val) {
+                  cuibt.changeCategorie(val!);
+                }),
           ),
         );
       },

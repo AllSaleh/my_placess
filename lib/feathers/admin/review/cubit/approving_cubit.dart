@@ -21,6 +21,11 @@ class ApprovingCubit extends Cubit<ApprovingState> {
 
   int? value;
 
+  changeCategorie(int val) async {
+    value = val;
+    emit(ApprovingSucess());
+  }
+
   getPlace() async {
     try {
       emit(ApprovingLoading());
@@ -35,7 +40,7 @@ class ApprovingCubit extends Cubit<ApprovingState> {
         link.text = data.location!;
         phone.text = data.phone!;
         rating.text = data.rate!;
-        value=data.category!;
+        value = data.category!;
 
         emit(ApprovingSucess());
       } else {
@@ -46,5 +51,49 @@ class ApprovingCubit extends Cubit<ApprovingState> {
     }
   }
 
- 
+  editPlace() async {
+    var response = await crud.postdata({
+      '_method': 'patch',
+      'name': name.text,
+      'description': description.text,
+      'phone': phone.text,
+      'location': link.text,
+      'category_id': value.toString(),
+      'rate': rating.text,
+      'type': type.text,
+    }, '${Applinks.editPlace}${data.id}/edit');
+    print(response);
+  }
+
+  deletePlace() async {
+    try {
+      emit(ApprovingLoading2());
+      var response =
+          await crud.delete('${Applinks.deletePlace}${data.id!}/delete');
+      if (response['success'] == true) {
+        emit(ApprovingSucess2());
+      } else {
+        emit(ApprovingFailure());
+      }
+    } catch (e) {
+      emit(ApprovingFailure());
+    }
+  }
+
+  approvePlace() async {
+    try {
+      emit(AcceptApprovingLoading());
+      var response = await crud
+          .postdata({}, '${Applinks.approving}${sharedPref.getInt('riveId')}');
+      
+
+      if (response['success'] == true) {
+        emit(AcceptApprovingSucess());
+      } else {
+        emit(AcceptApprovingFailure());
+      }
+    } catch (e) {
+      emit(AcceptApprovingFailure());
+    }
+  }
 }

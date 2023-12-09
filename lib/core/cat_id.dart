@@ -14,6 +14,19 @@ String catId() {
   }
 }
 
+String catId2(int id) {
+ 
+  if (id == 1) {
+    return 'Natural Landscape';
+  } else if (id == 2) {
+    return 'Museums &Monuments';
+  } else if (id == 3) {
+    return 'Shopping';
+  } else {
+    return 'Restaurants & cafes';
+  }
+}
+
 catImage() {
   int? id = sharedPref.getInt('cat');
 

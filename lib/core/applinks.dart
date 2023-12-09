@@ -34,6 +34,11 @@ abstract class Applinks {
   static const String reviewRequest = '$baseUrl/place/admin?is_approved=0';
   static const String approving = '$baseUrl/place/approve/';
   static const String showplace = '$baseUrl/place/admin/';
+  static const String editPlace = '$baseUrl/place/';
+  static const String deletePlace = '$baseUrl/place/admin/';
+
+
+
 
   
 

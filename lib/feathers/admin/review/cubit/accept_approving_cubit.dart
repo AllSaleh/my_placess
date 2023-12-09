@@ -28,5 +28,9 @@ class AcceptApprovingCubit extends Cubit<AcceptApprovingState> {
     }
   }
 
+  // updatePlace()async{
+  //   var response=await crud.postdata({}, '${Applinks.editPlace}${sharedPref.getInt('riveId')}/edit')
+  // }
+
  
 }

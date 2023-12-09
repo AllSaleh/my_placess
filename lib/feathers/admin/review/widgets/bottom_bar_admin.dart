@@ -6,6 +6,7 @@ import 'package:project/core/routers/routers_names.dart';
 import 'package:project/core/snackbar.dart';
 import 'package:project/core/widgets/custom_loading.dart';
 import 'package:project/feathers/admin/review/cubit/accept_approving_cubit.dart';
+import 'package:project/feathers/admin/review/cubit/approving_cubit.dart';
 import 'package:project/feathers/admin/review/cubit/rivew_cubit.dart';
 
 import 'package:project/feathers/auth/widgets/auth_button.dart';
@@ -38,21 +39,38 @@ class CustomBottomBarAdmin extends StatelessWidget {
                   : AuthButton(
                       horizontal: 20,
                       onPressed: () {
-                        BlocProvider.of<AcceptApprovingCubit>(context)
-                            .approvePlace();
+                        // BlocProvider.of<AcceptApprovingCubit>(context)
+                        //     .approvePlace();
+                        BlocProvider.of<ApprovingCubit>(context).editPlace();
                       },
                       title: 'Approve',
                       color: whiteColor,
                       backgroundColor: primaryColor),
-              AuthButton(
-                  horizontal: 25,
-                  onPressed: () {
-
+              BlocConsumer<ApprovingCubit, ApprovingState>(
+                listener: (context, state) {
+                  if (state is ApprovingSucess2) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        customSnackBar(title: 'The Places Regecting'));
                     GoRouter.of(context).pushReplacementNamed(Routers.review);
-                  },
-                  title: 'Reject',
-                  color: whiteColor,
-                  backgroundColor: primaryColor),
+                  }
+                },
+                builder: (context, state) {
+                  if (state is ApprovingLoading2) {
+                    return const CustomLoading();
+                  } else {
+                    return AuthButton(
+                        horizontal: 25,
+                        onPressed: () {
+                          BlocProvider.of<ApprovingCubit>(context)
+                              .deletePlace();
+                         
+                        },
+                        title: 'Reject',
+                        color: whiteColor,
+                        backgroundColor: primaryColor);
+                  }
+                },
+              )
             ],
           ),
         );
