@@ -4,8 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project/feathers/detils/cubit/detils_cubit.dart';
 import 'package:project/feathers/detils/widgets/detils_raring.dart';
 import 'package:project/feathers/detils/widgets/uber_button.dart';
-import 'package:project/main.dart';
-import 'package:url_launcher/url_launcher.dart';
+
 
 class InformationColumn extends StatelessWidget {
   const InformationColumn({super.key});
@@ -42,15 +41,26 @@ class InformationColumn extends StatelessWidget {
                 height: 30,
               ),
               UberButton(onPressed: () async {
-                var location =
-                    "https://www.google.com/maps/search/?api=1&query=${sharedPref.getDouble('lat')},${sharedPref.getDouble('long')}";
+                // final AndroidIntent intent = AndroidIntent(
+                //   action: 'action_application_details_settings',
+                //   data:
+                //       'package:com.ubercab.app', // replace com.example.app with your applicationId
+                // );
+                // await intent.launch();
+                // use android_intent package to open other app
+                var intent = const AndroidIntent(
+                    package: "com.android.ubercab", action: "action_view");
+                intent.launch();
 
-                final encodedURl = Uri.parse(location);
-                AndroidIntent intent = AndroidIntent(
-                  action: 'action_view',
-                  data: location,
-                );
-                await intent.launch();
+                // var location =
+                //     "https://www.google.com/maps/search/?api=1&query=${sharedPref.getDouble('lat')},${sharedPref.getDouble('long')}";
+
+                // final encodedURl = Uri.parse(location);
+                // AndroidIntent intent = AndroidIntent(
+                //   action: 'action_view',
+                //   data: location,
+                // );
+                // await intent.launch();
 
                 // if (await canLaunchUrl(encodedURl)) {
                 //   await launchUrl(encodedURl);
