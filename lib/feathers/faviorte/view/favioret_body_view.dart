@@ -34,9 +34,14 @@ class FaviorteBodyView extends StatelessWidget {
             },
           );
         } else {
-          return const Center(
-            child: Text('A problem Enter To Try Again',
-                style: TextStyle(fontSize: 20, color: primaryColor)),
+          return InkWell(
+            onTap: () {
+              BlocProvider.of<FaviorteCubit>(context).getdata();
+            },
+            child: const Center(
+              child: Text('A problem Enter To Try Again',
+                  style: TextStyle(fontSize: 20, color: primaryColor)),
+            ),
           );
         }
       },

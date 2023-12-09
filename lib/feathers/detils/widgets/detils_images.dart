@@ -12,9 +12,11 @@ class DetilsImages extends StatelessWidget {
       width: double.infinity,
       height: MediaQuery.of(context).size.height / 2,
       child: CarouselSlider(
-          items: const [
-            SliderContiner(image: AppAssets.authimag),
-            SliderContiner(image: AppAssets.test3)
+          items: [
+            ...List.generate(
+              3,
+              (index) => const SliderContiner(image: AppAssets.authimag),
+            )
           ],
           options: CarouselOptions(
             viewportFraction: 1,

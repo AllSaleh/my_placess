@@ -17,17 +17,29 @@ class ImagesRow extends StatelessWidget {
             continerplacess(
                 picked: cuibt.image1 != null ? true : false,
                 onTap: () {
-                  cuibt.uploadimage1();
+                  if (cuibt.image1 != null) {
+                    return;
+                  } else {
+                    cuibt.uploadimage1();
+                  }
                 }),
             continerplacess(
                 picked: cuibt.image2 != null ? true : false,
                 onTap: () {
-                  cuibt.uploadimage2();
+                  if (cuibt.image2 != null) {
+                    return;
+                  } else {
+                    cuibt.uploadimage2();
+                  }
                 }),
             continerplacess(
                 picked: cuibt.image3 != null ? true : false,
                 onTap: () {
-                  cuibt.uploadimage3();
+                  if (cuibt.image3 != null) {
+                    return;
+                  } else {
+                    cuibt.uploadimage3();
+                  }
                 }),
           ],
         );

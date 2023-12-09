@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project/feathers/detils/cubit/detils_cubit.dart';
 
 class DetilsRating extends StatelessWidget {
   const DetilsRating({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
-        Icon(
+        const Icon(
           Icons.star,
           color: Colors.yellow,
         ),
-        SizedBox(
+        const SizedBox(
           width: 8,
         ),
         Text(
-          '4.5',
-          style: TextStyle(fontSize: 14),
+          BlocProvider.of<DetilsCubit>(context).data.rate!,
+          style: const TextStyle(fontSize: 14),
         ),
       ],
     );

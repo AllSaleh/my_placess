@@ -12,38 +12,40 @@ class HomeBodyView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-      child: const Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          GenderIcon(),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            'Never think where,',
-            style: TextStyle(color: blackColor, fontSize: 25),
-          ),
-          Text(
-            'Tripbuddy leads u there',
-            style: TextStyle(
-                color: blackColor, fontSize: 28, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(
-            height: 37,
-          ),
-          RowHome(),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            'Recommendations',
-            style: TextStyle(color: Color(0xff3F415A), fontSize: 25),
-          ),
-          SizedBox(
-            height: 15,
-          ),
-          HomeListViewBuilder(),
-        ],
+      child: const SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            GenderIcon(),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              'Never think where,',
+              style: TextStyle(color: blackColor, fontSize: 25),
+            ),
+            Text(
+              'Tripbuddy leads u there',
+              style: TextStyle(
+                  color: blackColor, fontSize: 28, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 37,
+            ),
+            RowHome(),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              'Recommendations',
+              style: TextStyle(color: Color(0xff3F415A), fontSize: 25),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            HomeListViewBuilder(),
+          ],
+        ),
       ),
     );
   }

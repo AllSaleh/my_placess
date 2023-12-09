@@ -19,14 +19,20 @@ class AddPlacesCubit extends Cubit<AddPlacesState> {
   GlobalKey<FormState> key = GlobalKey<FormState>();
   ImagePicker imagePicker = ImagePicker();
   Crud crud = Crud();
+
   File? image1, image2, image3;
+
+  List<File> images = [];
 
   int? value;
 
   add() async {
     if (key.currentState!.validate()) {
+      if (value == null) {
+        emit(AddPlacesNotCategori());
+      }
       try {
-        // emit(AddPlacesLoading());
+        emit(AddPlacesLoading());
 
         var response = await crud.postwithFile(
             Applinks.addPlacess,
@@ -36,12 +42,18 @@ class AddPlacesCubit extends Cubit<AddPlacesState> {
               'phone': phone.text,
               'location': link.text,
               'category_id': value.toString(),
+              'rate': rating.text,
               'type': type.text,
             },
-            image1!);
-        print(response);
+            images);
+
+        if (response['message'] == 'The images field is required.') {
+          emit(AddPlacesNotImage());
+        } else {
+          
+          emit(AddPlacesSucsess());
+        }
       } catch (e) {
-        // print(e);
         emit(AddPlacesFailure());
       }
     }
@@ -60,7 +72,10 @@ class AddPlacesCubit extends Cubit<AddPlacesState> {
     if (picked == null) {
       return;
     }
+
     image1 = File(picked.path);
+    images.add(image1!);
+
     emit(AddPlacesInitial());
   }
 
@@ -71,8 +86,10 @@ class AddPlacesCubit extends Cubit<AddPlacesState> {
     if (picked == null) {
       return;
     }
-
     image2 = File(picked.path);
+
+    images.add(image2!);
+
     emit(AddPlacesInitial());
   }
 
@@ -84,6 +101,9 @@ class AddPlacesCubit extends Cubit<AddPlacesState> {
       return;
     }
     image3 = File(picked.path);
+
+    images.add(image3!);
+
     emit(AddPlacesInitial());
   }
 }

@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 
 class CustomContinerDetils extends StatelessWidget {
   final Color color;
+  final Color? iconColor;
   final VoidCallback onTap;
   final IconData icon;
+
   const CustomContinerDetils(
       {super.key,
       required this.onTap,
       required this.icon,
-      required this.color});
+      required this.color,
+      this.iconColor});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +21,10 @@ class CustomContinerDetils extends StatelessWidget {
         height: 52,
         width: 52,
         decoration: BoxDecoration(color: color, shape: BoxShape.circle),
-        child: Icon(icon),
+        child: Icon(
+          icon,
+          color: iconColor,
+        ),
       ),
     );
   }

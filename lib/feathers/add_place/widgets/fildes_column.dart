@@ -54,7 +54,7 @@ class FildesColumn extends StatelessWidget {
             labe: 'Rating',
             controller: cuibt.rating,
             validator: (rating) {
-              return validation('rating', rating, 1, 8);
+              return validation('rate', rating, 1, 8);
             }),
       ],
     );

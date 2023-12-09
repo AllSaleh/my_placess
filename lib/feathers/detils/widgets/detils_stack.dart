@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:project/core/const.dart';
+import 'package:project/feathers/detils/cubit/detils_cubit.dart';
 import 'package:project/feathers/detils/widgets/custom_continer_detils.dart';
 import 'package:project/feathers/detils/widgets/detils_images.dart';
 
@@ -28,10 +30,31 @@ class DetilsStack extends StatelessWidget {
                       GoRouter.of(context).pop();
                     },
                     icon: Icons.arrow_back),
-                CustomContinerDetils(
-                  color: whiteColor,
-                  onTap: () {},
-                  icon: Icons.favorite_border_outlined,
+                BlocBuilder<DetilsCubit, DetilsState>(
+                  builder: (context, state) {
+                    return CustomContinerDetils(
+                      iconColor: BlocProvider.of<DetilsCubit>(context)
+                                  .data
+                                  .isFavorites ==
+                              true
+                          ? primaryColor
+                          : blackColor,
+                      color: whiteColor,
+                      onTap: () {
+                        if (BlocProvider.of<DetilsCubit>(context)
+                                .data
+                                .isFavorites ==
+                            true) {
+                          BlocProvider.of<DetilsCubit>(context).deletefaviorte(
+                              BlocProvider.of<DetilsCubit>(context).data.id!);
+                        } else {
+                          BlocProvider.of<DetilsCubit>(context).addFaviorte(
+                              BlocProvider.of<DetilsCubit>(context).data.id!);
+                        }
+                      },
+                      icon: Icons.favorite_border_outlined,
+                    );
+                  },
                 ),
               ],
             ),

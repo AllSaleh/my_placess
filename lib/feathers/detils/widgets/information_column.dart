@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project/feathers/detils/cubit/detils_cubit.dart';
 import 'package:project/feathers/detils/widgets/detils_raring.dart';
 import 'package:project/feathers/detils/widgets/uber_button.dart';
 
@@ -27,14 +29,14 @@ class InformationColumn extends StatelessWidget {
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * .99,
-                child: const Text(
-                  'Red Sea waterfront popular with walkers & cyclists & renowned for its sunset views.',
-                  style: TextStyle(fontSize: 16),
+                child: Text(
+                  BlocProvider.of<DetilsCubit>(context).data.description!,
+                  style: const TextStyle(fontSize: 16),
                   textAlign: TextAlign.start,
                 ),
               ),
               const SizedBox(
-                height: 17,
+                height: 30,
               ),
               UberButton(onPressed: () {})
             ],

@@ -16,12 +16,12 @@ class UberButton extends StatelessWidget {
         ),
         padding: const EdgeInsets.symmetric(
           horizontal: 80,
-          vertical: 20,
+          vertical: 10,
         ),
       ),
       onPressed: onPressed,
       child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 50),
+        padding: EdgeInsets.symmetric(horizontal: 20),
         child: Row(
           children: [
             Icon(

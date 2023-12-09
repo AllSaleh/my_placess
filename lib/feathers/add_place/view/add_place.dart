@@ -9,6 +9,8 @@ class AddPlace extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => AddPlacesCubit(), child: const AddPlaceBodyView());
+      create: (context) => AddPlacesCubit(),
+      child: const AddPlaceBodyView(),
+    );
   }
 }

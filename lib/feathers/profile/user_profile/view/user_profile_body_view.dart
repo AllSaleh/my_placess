@@ -40,6 +40,7 @@ class UserProfileBodyView extends StatelessWidget {
             height: 40,
           ),
           AuthButton(
+              horizontal: 50,
               onPressed: () {
                 sharedPref.clear();
                 GoRouter.of(context).pushReplacementNamed(Routers.welocm);
