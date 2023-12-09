@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project/feathers/welcom/cubit/welcom_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:project/core/routers/app_routers.dart';
 
@@ -15,10 +17,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: AppRouts.routs,
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'Montserrat'),
+    return BlocProvider(
+      create: (context) => WelcomCubit()..determinePosition(),
+      child: MaterialApp.router(
+        routerConfig: AppRouts.routs,
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(fontFamily: 'Montserrat'),
+      ),
     );
   }
 }

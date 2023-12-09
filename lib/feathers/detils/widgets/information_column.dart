@@ -1,8 +1,11 @@
+import 'package:android_intent_plus/android_intent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project/feathers/detils/cubit/detils_cubit.dart';
 import 'package:project/feathers/detils/widgets/detils_raring.dart';
 import 'package:project/feathers/detils/widgets/uber_button.dart';
+import 'package:project/main.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class InformationColumn extends StatelessWidget {
   const InformationColumn({super.key});
@@ -38,7 +41,24 @@ class InformationColumn extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              UberButton(onPressed: () {})
+              UberButton(onPressed: () async {
+                var location =
+                    "https://www.google.com/maps/search/?api=1&query=${sharedPref.getDouble('lat')},${sharedPref.getDouble('long')}";
+
+                final encodedURl = Uri.parse(location);
+                AndroidIntent intent = AndroidIntent(
+                  action: 'action_view',
+                  data: location,
+                );
+                await intent.launch();
+
+                // if (await canLaunchUrl(encodedURl)) {
+                //   await launchUrl(encodedURl);
+                // } else {
+                //   print('Could not launch $encodedURl');
+                //   throw 'Could not launch $encodedURl';
+                // }
+              })
             ],
           ),
         ),

@@ -17,6 +17,7 @@ class RowHome extends StatelessWidget {
         children: [
           ContinerCategorise(
             onTap: () {
+            
               sharedPref.setInt('cat', 1);
               GoRouter.of(context).pushNamed(Routers.categorise);
             },

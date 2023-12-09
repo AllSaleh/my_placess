@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:project/core/app_assets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project/feathers/detils/cubit/detils_cubit.dart';
 import 'package:project/feathers/detils/widgets/slider_continer.dart';
 
 class DetilsImages extends StatelessWidget {
@@ -8,14 +9,16 @@ class DetilsImages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var cuibt = BlocProvider.of<DetilsCubit>(context).data;
     return SizedBox(
       width: double.infinity,
       height: MediaQuery.of(context).size.height / 2,
       child: CarouselSlider(
           items: [
             ...List.generate(
-              3,
-              (index) => const SliderContiner(image: AppAssets.authimag),
+              cuibt.images!.length,
+              (index) =>
+                  SliderContiner(image: cuibt.images![index].url.toString()),
             )
           ],
           options: CarouselOptions(

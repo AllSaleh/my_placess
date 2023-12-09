@@ -33,7 +33,17 @@ class DetilsRowEvents extends StatelessWidget {
           width: 26,
         ),
         CustomContinerDetils(
-          onTap: () async {},
+          onTap: () async {
+            String url =
+                BlocProvider.of<DetilsCubit>(context).data.location.toString();
+
+            if (await canLaunchUrl(Uri.parse(url))) {
+              await launchUrl(Uri.parse(url));
+            } else {
+              debugPrint('Could not launch $url');
+              throw 'Could not launch $url';
+            }
+          },
           icon: Icons.map,
           color: const Color(0xffF6F5F5),
         ),
@@ -48,11 +58,10 @@ class DetilsRowEvents extends StatelessWidget {
             } else if (state is AppromentFailure) {
               ScaffoldMessenger.of(context)
                   .showSnackBar(customSnackBar(title: 'An Error Try Again'));
-            }
-            else if(state is AppromentAdded){
-               ScaffoldMessenger.of(context)
-                  .showSnackBar(customSnackBar(title: 'This place is Alredy Added Calender In Chooses day!'));
-
+            } else if (state is AppromentAdded) {
+              ScaffoldMessenger.of(context).showSnackBar(customSnackBar(
+                  title:
+                      'This place is Alredy Added Calender In Chooses day!'));
             }
           },
           builder: (context, state) {

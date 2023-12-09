@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:project/core/routers/routers_names.dart';
-import 'package:project/feathers/admin/review/cubit/accept_approving_cubit.dart';
 import 'package:project/feathers/admin/review/cubit/approving_cubit.dart';
 import 'package:project/feathers/admin/review/cubit/rivew_cubit.dart';
 import 'package:project/feathers/admin/review/view/display_body_view.dart';
@@ -18,9 +17,7 @@ class DisplayReview extends StatelessWidget {
         BlocProvider(
           create: (context) => ApprovingCubit()..getPlace(),
         ),
-        BlocProvider(
-          create: (context) => AcceptApprovingCubit(),
-        ),
+      
         BlocProvider(
           create: (context) => RivewCubit(),
         ),

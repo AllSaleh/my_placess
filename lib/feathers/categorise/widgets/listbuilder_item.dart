@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:go_router/go_router.dart';
-import 'package:project/core/app_assets.dart';
-
 import 'package:project/core/const.dart';
 import 'package:project/core/routers/routers_names.dart';
 
@@ -25,29 +22,17 @@ class ListBuilderCAtegorieItem extends StatelessWidget {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            // categorieModel.images == null
-            //     ?
             Container(
               height: MediaQuery.of(context).size.height / 4,
               width: MediaQuery.of(context).size.width * .9,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                image: const DecorationImage(
-                    image: AssetImage(AppAssets.authimag), fit: BoxFit.fill),
+                image: DecorationImage(
+                    image:
+                        NetworkImage(categorieModel.images![0].url.toString()),
+                    fit: BoxFit.fill),
               ),
-            )
-            // : Container(
-            //     height: MediaQuery.of(context).size.height / 4,
-            //     width: MediaQuery.of(context).size.width * .9,
-            //     decoration: BoxDecoration(
-            //       borderRadius: BorderRadius.circular(20),
-            //       image: DecorationImage(
-            //           image: NetworkImage(
-            //               categorieModel.images![0].url.toString()),
-            //           fit: BoxFit.fill),
-            //     ),
-            //   ),
-            ,
+            ),
             Positioned(
                 left: 14,
                 bottom: 38,

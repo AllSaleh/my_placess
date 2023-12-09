@@ -12,7 +12,7 @@ class SliderContiner extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           image: DecorationImage(
-            image: AssetImage(
+            image: NetworkImage(
               image,
             ),
             fit: BoxFit.fill,

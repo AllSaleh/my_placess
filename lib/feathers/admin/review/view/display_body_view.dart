@@ -6,7 +6,8 @@ import 'package:project/feathers/admin/review/cubit/approving_cubit.dart';
 import 'package:project/feathers/admin/review/widgets/custom_fildes.dart';
 import 'package:project/feathers/admin/review/widgets/custom_row.dart';
 import 'package:project/feathers/admin/review/widgets/dropmenu_button.dart';
-import 'package:project/feathers/admin/review/widgets/image_continer_adimn.dart';
+
+import 'package:project/feathers/admin/review/widgets/row_images_admin.dart';
 
 class DisplayBoddyView extends StatelessWidget {
   const DisplayBoddyView({super.key});
@@ -21,52 +22,43 @@ class DisplayBoddyView extends StatelessWidget {
           return Container(
             padding:
                 const EdgeInsets.only(top: 58, bottom: 24, left: 20, right: 20),
-            child: SingleChildScrollView(
+            child: const SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CustomRow(title: 'Approve'),
-                  const SizedBox(
+                  CustomRow(title: 'Approve'),
+                  SizedBox(
                     height: 58,
                   ),
-                  const CustomFaildsApprov(),
-                  const SizedBox(
+                  CustomFaildsApprov(),
+                  SizedBox(
                     height: 20,
                   ),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.only(left: 20),
                     child: Text(
                       'Category',
                       style: TextStyle(color: primaryColor, fontSize: 18),
                     ),
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 20,
                   ),
-                  const CustomDropMenuButton(),
-                  const SizedBox(
+                  CustomDropMenuButton(),
+                  SizedBox(
                     height: 20,
                   ),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.only(left: 20),
                     child: Text(
                       'Insert Photo',
                       style: TextStyle(color: primaryColor, fontSize: 18),
                     ),
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 20,
                   ),
-                  SizedBox(
-                    width: 300,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        ...List.generate(
-                            3, (index) => const ImageContinerAdmin())
-                      ],
-                    ),
-                  )
+                  CustomAdmindRow()
                 ],
               ),
             ),

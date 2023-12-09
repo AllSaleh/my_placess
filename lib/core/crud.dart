@@ -64,7 +64,7 @@ class Crud {
       request.headers
           .addAll({"Authorization": "Bearer ${sharedPref.getString('token')}"});
       for (int i = 0; i < images.length; i++) {
-        final f =  http.MultipartFile(
+        final f = http.MultipartFile(
             'images[$i]',
             File(images[i].path).readAsBytes().asStream(),
             File(images[i].path).lengthSync(),
@@ -72,12 +72,6 @@ class Crud {
         request.files.add(f);
       }
 
-      // var length = await file.length();
-      // var stream = http.ByteStream(file.openRead());
-
-      // var muiltpartfile = http.MultipartFile("images[0]", stream, length,
-      //     filename: basename(file.path));
-      // request.files.add(muiltpartfile);
       data.forEach((key, value) {
         request.fields[key] = value;
       });
@@ -91,6 +85,29 @@ class Crud {
       }
     } catch (e) {
       debugPrint('Error is $e');
+    }
+  }
+
+  postWithFile1(File file, String uri) async {
+    try {
+      var request = http.MultipartRequest('POST', Uri.parse(uri));
+      request.headers
+          .addAll({"Authorization": "Bearer ${sharedPref.getString('token')}"});
+
+      var length = await file.length();
+      var stream = http.ByteStream(file.openRead());
+
+      var muiltpartfile = http.MultipartFile("image", stream, length,
+          filename: basename(file.path));
+      request.files.add(muiltpartfile);
+      var myrequest = await request.send();
+
+      var response = await http.Response.fromStream(myrequest);
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {}
+    } catch (e) {
+      debugPrint(e.toString());
     }
   }
 }

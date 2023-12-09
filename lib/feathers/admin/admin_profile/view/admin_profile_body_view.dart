@@ -25,8 +25,8 @@ class AdminProfileBodyView extends StatelessWidget {
           ProfileStack(
             haveImage: true,
             onPressedEdite: () {},
-            name: 'Amal Ali',
-            email: 'Admin1@gmail.com',
+            name: sharedPref.getString('name').toString(),
+            email: sharedPref.getString('email').toString(),
           ),
           const SizedBox(
             height: 28,
@@ -38,6 +38,7 @@ class AdminProfileBodyView extends StatelessWidget {
             height: 60,
           ),
           AuthButton(
+              horizontal: 80,
               onPressed: () {
                 sharedPref.clear();
                 GoRouter.of(context).pushReplacementNamed(Routers.welocm);

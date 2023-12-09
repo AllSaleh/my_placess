@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:project/core/applinks.dart';
 import 'package:project/core/crud.dart';
 import 'package:project/feathers/detils/data/detils_model.dart';
@@ -15,6 +18,9 @@ class ApprovingCubit extends Cubit<ApprovingState> {
   TextEditingController link = TextEditingController();
   TextEditingController phone = TextEditingController();
   TextEditingController rating = TextEditingController();
+  ImagePicker imagePicker = ImagePicker();
+
+  File? image1, image2, image3;
 
   Crud crud = Crud();
   DetilsModel data = DetilsModel();
@@ -62,7 +68,12 @@ class ApprovingCubit extends Cubit<ApprovingState> {
       'rate': rating.text,
       'type': type.text,
     }, '${Applinks.editPlace}${data.id}/edit');
-    print(response);
+
+    if (response['success'] == true) {
+      approvePlace();
+    } else {
+      emit(ApprovingFailure());
+    }
   }
 
   deletePlace() async {
@@ -71,7 +82,7 @@ class ApprovingCubit extends Cubit<ApprovingState> {
       var response =
           await crud.delete('${Applinks.deletePlace}${data.id!}/delete');
       if (response['success'] == true) {
-        emit(ApprovingSucess2());
+        emit(ApprovingSucess3());
       } else {
         emit(ApprovingFailure());
       }
@@ -82,18 +93,76 @@ class ApprovingCubit extends Cubit<ApprovingState> {
 
   approvePlace() async {
     try {
-      emit(AcceptApprovingLoading());
-      var response = await crud
-          .postdata({}, '${Applinks.approving}${sharedPref.getInt('riveId')}');
-      
+      emit(ApprovingLoading2());
+      var response =
+          await crud.postdata({}, '${Applinks.approving}${data.id!}');
 
       if (response['success'] == true) {
-        emit(AcceptApprovingSucess());
+        emit(ApprovingSucess2());
       } else {
-        emit(AcceptApprovingFailure());
+        emit(ApprovingFailure());
       }
     } catch (e) {
-      emit(AcceptApprovingFailure());
+      emit(ApprovingFailure());
     }
+  }
+
+  deleteImage(int index) async {
+    var response = await crud.delete(
+        '${Applinks.deleteImage}${data.id}/image/${data.images![index].id}');
+    debugPrint(response);
+
+    if (response['success'] == false) {
+      // emit(state);
+    }
+  }
+
+  addImage(File file) async {
+    try {
+      var response = await crud.postWithFile1(
+          file, '${Applinks.addImage}${data.id}/image');
+      debugPrint(response);
+    } catch (e) {
+      emit(ApprovingFailure3());
+    }
+  }
+
+  uploadimage() async {
+    final XFile? picked =
+        await imagePicker.pickImage(source: ImageSource.gallery);
+
+    if (picked == null) {
+      return;
+    }
+    deleteImage(0);
+
+    image1 = File(picked.path);
+    addImage(image1!);
+  }
+
+  uploadimage2() async {
+    final XFile? picked =
+        await imagePicker.pickImage(source: ImageSource.gallery);
+
+    if (picked == null) {
+      return;
+    }
+    deleteImage(1);
+
+    image2 = File(picked.path);
+    addImage(image2!);
+  }
+
+  uploadimage3() async {
+    final XFile? picked =
+        await imagePicker.pickImage(source: ImageSource.gallery);
+
+    if (picked == null) {
+      return;
+    }
+    deleteImage(2);
+
+    image3 = File(picked.path);
+    addImage(image3!);
   }
 }

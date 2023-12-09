@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ImageContinerAdmin extends StatelessWidget {
+  final VoidCallback onTap;
   const ImageContinerAdmin({
-    super.key,
+    super.key, required this.onTap,
   });
 
   @override
@@ -12,15 +13,18 @@ class ImageContinerAdmin extends StatelessWidget {
       child: Stack(
         clipBehavior: Clip.none,
         children: [
-          Container(
-            height: 80,
-            width: 80,
-            decoration: BoxDecoration(
-                color: const Color(0xffF6F5F5),
-                borderRadius: BorderRadius.circular(20)),
-            child: const Icon(
-              Icons.image,
-              size: 50,
+          InkWell(
+            onTap: onTap,
+            child: Container(
+              height: 80,
+              width: 80,
+              decoration: BoxDecoration(
+                  color: const Color(0xffF6F5F5),
+                  borderRadius: BorderRadius.circular(20)),
+              child: const Icon(
+                Icons.image,
+                size: 50,
+              ),
             ),
           ),
           const Positioned(

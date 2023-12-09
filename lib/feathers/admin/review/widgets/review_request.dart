@@ -27,7 +27,7 @@ class ReviewRequest extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               color: const Color(0xffF6F5F5)),
           child: Text(
-            'Request ${index + 1}',
+            reviewModel.name!,
             style: const TextStyle(fontSize: 20),
           ),
         ),
