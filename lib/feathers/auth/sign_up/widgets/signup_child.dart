@@ -36,7 +36,7 @@ class SignUpChild extends StatelessWidget {
       builder: (context, state) {
         return CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(
+          SliverToBoxAdapter(
               child: Form(
                 key: BlocProvider.of<SignUpCubit>(context).key,
                 child: Column(

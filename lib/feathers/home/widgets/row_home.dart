@@ -17,7 +17,6 @@ class RowHome extends StatelessWidget {
         children: [
           ContinerCategorise(
             onTap: () {
-            
               sharedPref.setInt('cat', 1);
               GoRouter.of(context).pushNamed(Routers.categorise);
             },
@@ -47,6 +46,14 @@ class RowHome extends StatelessWidget {
             },
             image: AppAssets.restaurants,
             title: 'Restaurants & cafes',
+          ),
+          ContinerCategorise(
+            onTap: () {
+              sharedPref.setInt('cat', 5);
+              GoRouter.of(context).pushNamed(Routers.categorise);
+            },
+            image: AppAssets.current,
+            title: 'Current Events',
           ),
         ],
       ),

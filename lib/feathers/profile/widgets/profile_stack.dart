@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project/core/app_assets.dart';
 import 'package:project/core/functions.dart';
+import 'package:project/feathers/admin/cubit/profile_cubit.dart';
 import 'package:project/feathers/profile/widgets/account_detils.dart';
 import 'package:project/feathers/profile/widgets/account_image.dart';
 
@@ -30,9 +32,12 @@ class ProfileStack extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 color: const Color(0xffF6F5F5)),
           ),
-          AccountImage(
-            haveImage: haveImage,
-            image: gender() == 'mail' ? AppAssets.male : AppAssets.female,
+          BlocBuilder<ProfileCubit, ProfileState>(
+            builder: (context, state) {
+              return AccountImage(
+                image: gender() == 'mail' ? AppAssets.male : AppAssets.female,
+              );
+            },
           ),
           AccountDetils(name: name, email: email),
           Positioned(

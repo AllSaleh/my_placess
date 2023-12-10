@@ -19,6 +19,7 @@ abstract class AppAssets {
   static const String museums = '$baseUrl/museums.png';
   static const String restaurants = '$baseUrl/restaurants.png';
   static const String natural = '$baseUrl/natural.png';
+  static const String current = '$baseUrl/current.png';
 
   //test
   static const String test = '$baseUrl/test.png';

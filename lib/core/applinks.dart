@@ -1,5 +1,5 @@
 abstract class Applinks {
-  static const String baseUrl = 'http://192.168.63.108:8000/api';
+  static const String baseUrl = 'http://192.168.109.108:8000/api';
 
   //auth
   static const String register = '$baseUrl/register';
@@ -33,4 +33,12 @@ abstract class Applinks {
   static const String deletePlace = '$baseUrl/place/admin/';
   static const String deleteImage = '$baseUrl/place/';
   static const String addImage = '$baseUrl/place/';
+
+  //profile
+  static const String getUserAccount = '$baseUrl/profile';
+  // static const String getUserAccount = '$baseUrl/profile';
+
+  
+
+
 }

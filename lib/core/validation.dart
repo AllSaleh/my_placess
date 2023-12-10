@@ -13,11 +13,11 @@ validation(String type, String? value, int min, int max) {
       return 'IncorrectEmail';
     }
   }
-  if (type == 'password') {
-    if (!RegExp('^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}').hasMatch(value)) {
-      return 'Incorrect Password';
-    }
-  }
+  // if (type == 'password') {
+  //   if (!RegExp('^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}').hasMatch(value)) {
+  //     return 'Incorrect Password';
+  //   }
+  // }
   if (type == 'phone') {
     if (!RegExp('^[0-9]').hasMatch(value)) {
       return 'should be phone number';

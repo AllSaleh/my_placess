@@ -33,6 +33,7 @@ class SignInChild extends StatelessWidget {
               height: 30,
             ),
             CustomTextFiled(
+                obs: true,
                 validator: (password) {
                   return validation('password', password, 6, 20);
                 },

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:project/core/const.dart';
 import 'package:project/core/routers/routers_names.dart';
+import 'package:project/feathers/admin/cubit/profile_cubit.dart';
 import 'package:project/feathers/auth/widgets/auth_button.dart';
 import 'package:project/feathers/admin/admin_profile/view/adimin_profile_child.dart';
 import 'package:project/feathers/profile/widgets/profile_stack.dart';
@@ -22,11 +24,21 @@ class AdminProfileBodyView extends StatelessWidget {
           const SizedBox(
             height: 53,
           ),
-          ProfileStack(
-            haveImage: true,
-            onPressedEdite: () {},
-            name: sharedPref.getString('name').toString(),
-            email: sharedPref.getString('email').toString(),
+          BlocConsumer<ProfileCubit, ProfileState>(
+            listener: (context, state) {
+          
+            },
+            builder: (context, state) {
+              return ProfileStack(
+                haveImage: true,
+                onPressedEdite: () {
+
+                  BlocProvider.of<ProfileCubit>(context).uploadimage1();
+                },
+                name: sharedPref.getString('name').toString(),
+                email: sharedPref.getString('email').toString(),
+              );
+            },
           ),
           const SizedBox(
             height: 28,

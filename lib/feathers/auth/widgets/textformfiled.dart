@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project/core/const.dart';
 
 class CustomTextFiled extends StatelessWidget {
+  final bool obs;
   final String labe;
   final double padding;
   final int maxLines;
@@ -13,13 +14,15 @@ class CustomTextFiled extends StatelessWidget {
       required this.controller,
       required this.validator,
       this.padding = 0,
-      this.maxLines = 1});
+      this.maxLines = 1,
+      this.obs = false});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: padding),
       child: TextFormField(
+        obscureText: obs,
         maxLines: maxLines,
         validator: validator,
         controller: controller,

@@ -11,7 +11,7 @@ class HomeListViewBuilder extends StatelessWidget {
       child: ListView.builder(
         padding: EdgeInsets.zero,
         scrollDirection: Axis.horizontal,
-        itemCount: 10,
+        itemCount: 3,
         itemBuilder: (BuildContext context, int index) {
           return const ListBuilderHomeItem();
         },

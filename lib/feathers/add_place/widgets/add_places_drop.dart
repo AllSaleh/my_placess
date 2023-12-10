@@ -35,6 +35,10 @@ class AddPlaceDrop extends StatelessWidget {
                     value: 4,
                     child: Text('Restaurants & cafes'),
                   ),
+                  DropdownMenuItem(
+                    value: 5,
+                    child: Text('Current Events'),
+                  ),
                 ],
                 onChanged: (val) {
                   BlocProvider.of<AddPlacesCubit>(context).onchanedrop(val!);

@@ -9,23 +9,13 @@ String catId() {
     return 'Museums &Monuments';
   } else if (id == 3) {
     return 'Shopping';
-  } else {
+  } else if (id == 4) {
     return 'Restaurants & cafes';
+  } else {
+    return 'Current Events';
   }
 }
 
-String catId2(int id) {
- 
-  if (id == 1) {
-    return 'Natural Landscape';
-  } else if (id == 2) {
-    return 'Museums &Monuments';
-  } else if (id == 3) {
-    return 'Shopping';
-  } else {
-    return 'Restaurants & cafes';
-  }
-}
 
 catImage() {
   int? id = sharedPref.getInt('cat');
@@ -36,7 +26,9 @@ catImage() {
     return AppAssets.museums;
   } else if (id == 3) {
     return AppAssets.shopping;
-  } else {
+  } else if (id == 4) {
     return AppAssets.restaurants;
+  } else {
+    return AppAssets.current;
   }
 }
