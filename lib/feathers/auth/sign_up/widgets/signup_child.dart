@@ -36,7 +36,7 @@ class SignUpChild extends StatelessWidget {
       builder: (context, state) {
         return CustomScrollView(
           slivers: [
-          SliverToBoxAdapter(
+            SliverToBoxAdapter(
               child: Form(
                 key: BlocProvider.of<SignUpCubit>(context).key,
                 child: Column(
@@ -60,6 +60,7 @@ class SignUpChild extends StatelessWidget {
                       height: 10,
                     ),
                     CustomTextFiled(
+                        obs: true,
                         labe: 'Password',
                         controller:
                             BlocProvider.of<SignUpCubit>(context).password,
@@ -70,6 +71,7 @@ class SignUpChild extends StatelessWidget {
                       height: 20,
                     ),
                     CustomTextFiled(
+                        obs: true,
                         labe: 'Confirm Password',
                         controller:
                             BlocProvider.of<SignUpCubit>(context).password2,

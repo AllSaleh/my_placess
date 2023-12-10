@@ -23,6 +23,7 @@ class ProfileStack extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.of(context).size.height / 5,
       child: Stack(
+        alignment: Alignment.center,
         clipBehavior: Clip.none,
         children: [
           Container(

@@ -29,6 +29,7 @@ class RestChild extends StatelessWidget {
               style: TextStyle(fontSize: 20),
             ),
             CustomTextFiled(
+              obs: true,
                 padding: 10,
                 validator: (password) {
                   return validation('password', password, 6, 20);
@@ -37,6 +38,8 @@ class RestChild extends StatelessWidget {
                 controller:
                     BlocProvider.of<RestPasswordCubit>(context).password1),
             CustomTextFiled(
+              obs: true,
+
               padding: 10,
               validator: (confirmpassword) {
                 return validation('confirmpassword', confirmpassword, 6, 20);
