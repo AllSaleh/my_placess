@@ -24,7 +24,7 @@ class SignUpChild extends StatelessWidget {
           ScaffoldMessenger.of(context)
               .showSnackBar(customSnackBar(title: 'Password not Identical'));
         } else if (state is SignUpSucsess) {
-          GoRouter.of(context).pushReplacementNamed(Routers.home);
+          GoRouter.of(context).pushReplacementNamed(Routers.signIn);
         } else if (state is SignUpExiting) {
           ScaffoldMessenger.of(context)
               .showSnackBar(customSnackBar(title: 'This Email is Exsiting'));

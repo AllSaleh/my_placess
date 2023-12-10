@@ -38,6 +38,7 @@ class SignUpCubit extends Cubit<SignUpState> {
             'password_confirmation': password2.text,
             'gender': genders()
           }, Applinks.register);
+          print(response);
           if (response['success'] == true) {
             sharedPref.setInt('id', response['data']['user']['id']);
             if (response['data']['user']['is_admin'] == false) {
