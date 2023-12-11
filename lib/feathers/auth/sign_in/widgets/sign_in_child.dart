@@ -56,7 +56,7 @@ class SignInChild extends StatelessWidget {
                       customSnackBar(title: 'Incorrect Email Or Password'));
                 } else if (state is SignInFailuer) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                      customSnackBar(title: 'Ther is A proplem Try Again'));
+                      customSnackBar(title: 'They is A proplem Try Again'));
                 }
               },
               builder: (context, state) {

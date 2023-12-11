@@ -19,7 +19,7 @@ class AccountImage extends StatelessWidget {
     return BlocBuilder<ProfileCubit, ProfileState>(
       builder: (context, state) {
         if (state is ProfileLoading) {
-          return const CustomLoading();
+          return const Positioned(top: -50, child: CustomLoading());
         } else {
           return Positioned(
               top: -50,

@@ -17,7 +17,7 @@ class FildesColumn extends StatelessWidget {
             labe: 'Name',
             controller: cuibt.name,
             validator: (name) {
-              return validation('name', name, 3, 20);
+              return validation('name', name, 3, 50);
             }),
         CustomTextFiled(
             padding: 15,

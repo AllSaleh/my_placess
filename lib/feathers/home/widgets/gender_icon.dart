@@ -15,7 +15,8 @@ class GenderIcon extends StatelessWidget {
         ? BlocBuilder<ProfileCubit, ProfileState>(
             builder: (context, state) {
               if (state is ProfileLoading || state is ProfileInitial) {
-                return const CustomLoading();
+                return const Align(
+                    alignment: Alignment.centerRight, child: CustomLoading());
               } else if (state is ProfileSucsess) {
                 return Align(
                     alignment: Alignment.topRight,
@@ -41,9 +42,12 @@ class GenderIcon extends StatelessWidget {
                               : null,
                     ));
               } else {
-                return const Text(
-                  'Error NetWork Try Agatin',
-                  style: TextStyle(color: blackColor, fontSize: 15),
+                return const Align(
+                  alignment: Alignment.topRight,
+                  child: CircleAvatar(
+                    radius: 30,
+                    backgroundColor: continerColor,
+                  ),
                 );
               }
             },

@@ -28,7 +28,7 @@ class CustomTextFiled extends StatelessWidget {
         controller: controller,
         cursorColor: primaryColor,
         decoration: InputDecoration(
-            labelText: labe,
+          labelText: labe,
             labelStyle: const TextStyle(color: primaryColor),
             enabledBorder: underLineBorder(),
             errorBorder: underLineBorder(),

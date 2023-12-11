@@ -13,7 +13,7 @@ class WillpopscopWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        height: MediaQuery.of(context).size.height / 6,
+        height: MediaQuery.of(context).size.height / 5,
         width: MediaQuery.of(context).size.width * .7,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20), color: Colors.white),

@@ -110,6 +110,7 @@ class SignUpChild extends StatelessWidget {
                     state is SignUpLoading
                         ? const CustomLoading()
                         : AuthButton(
+                            horizontal: 80,
                             onPressed: () {
                               BlocProvider.of<SignUpCubit>(context).signUp();
                             },

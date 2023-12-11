@@ -116,7 +116,7 @@ class ApprovingCubit extends Cubit<ApprovingState> {
   deleteImage(int index) async {
     var response = await crud.delete(
         '${Applinks.deleteImage}${data.id}/image/${data.images![index].id}');
-    debugPrint(response);
+    // print(response);
 
     if (response['success'] == false) {
       // emit(state);
@@ -127,9 +127,10 @@ class ApprovingCubit extends Cubit<ApprovingState> {
     try {
       var response = await crud.postWithFile1(
           file, '${Applinks.addImage}${data.id}/image');
+      // print(response);
       debugPrint(response);
     } catch (e) {
-      emit(ApprovingFailure3());
+      // emit(ApprovingFailure3());
     }
   }
 

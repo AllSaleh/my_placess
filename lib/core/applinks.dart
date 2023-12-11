@@ -1,5 +1,5 @@
 abstract class Applinks {
-  static const String baseUrl = 'http://192.168.153.108:8000/api';
+  static const String baseUrl = 'http://orangered-magpie-961382-builder-preview1-com.preview-domain.com/api';
 
   //auth
   static const String register = '$baseUrl/register';
@@ -10,11 +10,12 @@ abstract class Applinks {
 
   //placess
   static const String addPlacess = '$baseUrl/place';
+  static const String poupler = '$baseUrl/popular';
+
   //faviorte
   static const String faviorte = '$baseUrl/favorite';
   static const String delete = '$baseUrl/favorite/';
   static const String addFaviorte = '$baseUrl/favorite/';
-  static const String poupler = '$baseUrl/popular';
 
   //
   static const String showPlacessCategorie = '$baseUrl/place/category/';

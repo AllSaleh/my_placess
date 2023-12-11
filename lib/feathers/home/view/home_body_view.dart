@@ -52,23 +52,26 @@ class HomeBodyView extends StatelessWidget {
             ),
             BlocBuilder<HomeCubit, HomeState>(
               builder: (context, state) {
-               if(state is HomeLoading || state is HomeInitial){
-                return const CustomLoading();
-               }
-               else if( state is HomeSucsess){
-                return  const HomeListViewBuilder();
-               }
-               else{
-                return  InkWell(
-          onTap: () {
-            BlocProvider.of<HomeCubit>(context).getRecomndations();
-          },
-          child: const Center(
-            child: Text('A problem Enter To Try Again',
-                style: TextStyle(fontSize: 20, color: primaryColor)),
-          ),
-        );
-               }
+                if (state is HomeLoading || state is HomeInitial) {
+                  return const CustomLoading();
+                } else if (state is HomeSucsess) {
+                  return const HomeListViewBuilder();
+                } else if (state is HomeNoData) {
+                  return const Center(
+                    child: Text('No Data',
+                        style: TextStyle(fontSize: 20, color: primaryColor)),
+                  );
+                } else {
+                  return InkWell(
+                    onTap: () {
+                      BlocProvider.of<HomeCubit>(context).getRecomndations();
+                    },
+                    child: const Center(
+                      child: Text('A problem Enter To Try Again',
+                          style: TextStyle(fontSize: 20, color: primaryColor)),
+                    ),
+                  );
+                }
               },
             ),
           ],
