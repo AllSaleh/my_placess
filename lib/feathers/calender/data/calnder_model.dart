@@ -5,7 +5,7 @@ class CalnderModel {
   String? type;
   String? phone;
   String? location;
-  String? rate;
+  dynamic rate;
   List<Images>? images;
   int? category;
   String? date;
