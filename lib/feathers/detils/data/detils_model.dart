@@ -6,7 +6,7 @@ class DetilsModel {
   String? phone;
   String? location;
   dynamic rate;
-  int? category;
+  dynamic category;
   List<Images>? images;
   bool? isFavorites;
   int? isApproved;

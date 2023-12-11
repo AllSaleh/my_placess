@@ -29,16 +29,16 @@ class ApprovingCubit extends Cubit<ApprovingState> {
 
   changeCategorie(int val) async {
     value = val;
+
     emit(ApprovingSucess());
   }
 
   getPlace() async {
-    print('object');
     try {
       emit(ApprovingLoading());
       var response = await crud
           .get('${Applinks.showplace}${sharedPref.getInt('riveId')}/get');
-      print(response);
+
       if (response['success'] == true) {
         data = DetilsModel.fromJson(response['data']);
 
@@ -55,26 +55,29 @@ class ApprovingCubit extends Cubit<ApprovingState> {
         emit(ApprovingFailure());
       }
     } catch (e) {
-      print(e);
       emit(ApprovingFailure());
     }
   }
 
   editPlace() async {
-    var response = await crud.postdata({
-      '_method': 'patch',
-      'name': name.text,
-      'description': description.text,
-      'phone': phone.text,
-      'location': link.text,
-      'category_id': value.toString(),
-      'rate': rating.text,
-      'type': type.text,
-    }, '${Applinks.editPlace}${data.id}/edit');
+    try {
+      var response = await crud.postdata({
+        '_method': 'patch',
+        'name': name.text,
+        'description': description.text,
+        'phone': phone.text,
+        'location': link.text,
+        'category_id': value.toString(),
+        'rate': rating.text,
+        'type': type.text,
+      }, '${Applinks.editPlace}${data.id}/edit');
 
-    if (response['success'] == true) {
-      approvePlace();
-    } else {
+      if (response['success'] == true) {
+        approvePlace();
+      } else {
+        emit(ApprovingFailure());
+      }
+    } catch (e) {
       emit(ApprovingFailure());
     }
   }

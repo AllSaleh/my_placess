@@ -14,7 +14,6 @@ import 'package:project/feathers/add_place/widgets/images_row.dart';
 import 'package:project/feathers/auth/widgets/auth_button.dart';
 import 'package:project/feathers/home_screen/cubit/home_screen_cubit.dart';
 
-
 class AddPlaceBodyView extends StatelessWidget {
   const AddPlaceBodyView({super.key});
 

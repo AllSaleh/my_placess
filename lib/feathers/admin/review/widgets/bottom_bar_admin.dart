@@ -10,7 +10,6 @@ import 'package:project/feathers/admin/review/cubit/rivew_cubit.dart';
 
 import 'package:project/feathers/auth/widgets/auth_button.dart';
 
-
 class CustomBottomBarAdmin extends StatelessWidget {
   const CustomBottomBarAdmin({super.key});
 
@@ -38,11 +37,9 @@ class CustomBottomBarAdmin extends StatelessWidget {
                   ? const CustomLoading()
                   : AuthButton(
                       horizontal: 20,
-                      onPressed: ()  {
-                        
-                      
-                      BlocProvider.of<ApprovingCubit>(context).approvePlace();}
-                      ,
+                      onPressed: () {
+                        BlocProvider.of<ApprovingCubit>(context).editPlace();
+                      },
                       title: 'Approve',
                       color: whiteColor,
                       backgroundColor: primaryColor),

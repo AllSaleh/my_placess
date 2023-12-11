@@ -24,7 +24,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         var response = await crud.get(Applinks.getUserAccount);
         if (response['success'] == true) {
           data = ProfileModel.fromJson(response['data']);
-          // print(data.image);
+         
           emit(ProfileSucsess());
         } else {
           emit(ProfileIFailure());
