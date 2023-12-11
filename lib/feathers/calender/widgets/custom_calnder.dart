@@ -24,6 +24,7 @@ class CustomCalender extends StatelessWidget {
               selectedDayPredicate: (day) => isSameDay(
                   BlocProvider.of<CalnderCubit>(context).dateTime, day),
               onDaySelected: (selectedDay, focusedDay) {
+            
                 BlocProvider.of<CalnderCubit>(context).changeDate(selectedDay);
                 BlocProvider.of<CalnderCubit>(context).getCalender();
 
