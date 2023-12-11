@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project/core/app_assets.dart';
 import 'package:project/core/const.dart';
 import 'package:project/core/functions.dart';
+import 'package:project/core/widgets/custom_loading.dart';
+import 'package:project/feathers/home/cubit/home_cubit.dart';
 
 import 'package:project/feathers/home/widgets/gender_icon.dart';
 import 'package:project/feathers/home/widgets/home_listview.dart';
@@ -47,7 +50,27 @@ class HomeBodyView extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            const HomeListViewBuilder(),
+            BlocBuilder<HomeCubit, HomeState>(
+              builder: (context, state) {
+               if(state is HomeLoading || state is HomeInitial){
+                return const CustomLoading();
+               }
+               else if( state is HomeSucsess){
+                return  const HomeListViewBuilder();
+               }
+               else{
+                return  InkWell(
+          onTap: () {
+            BlocProvider.of<HomeCubit>(context).getRecomndations();
+          },
+          child: const Center(
+            child: Text('A problem Enter To Try Again',
+                style: TextStyle(fontSize: 20, color: primaryColor)),
+          ),
+        );
+               }
+              },
+            ),
           ],
         ),
       ),

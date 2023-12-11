@@ -26,9 +26,7 @@ class AccountImage extends StatelessWidget {
               // left: MediaQuery.of(context).size.width * .3,
               child: CircleAvatar(
                 backgroundImage:
-                    BlocProvider.of<ProfileCubit>(context).data.image == '' ||
-                            BlocProvider.of<ProfileCubit>(context).data.image ==
-                                ''
+                    BlocProvider.of<ProfileCubit>(context).data.image == ''
                         ? null
                         : NetworkImage(
                             BlocProvider.of<ProfileCubit>(context).data.image!),

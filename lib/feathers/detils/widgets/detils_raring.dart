@@ -17,7 +17,7 @@ class DetilsRating extends StatelessWidget {
           width: 8,
         ),
         Text(
-          BlocProvider.of<DetilsCubit>(context).data.rate!,
+          BlocProvider.of<DetilsCubit>(context).data.rate!.toString(),
           style: const TextStyle(fontSize: 14),
         ),
       ],

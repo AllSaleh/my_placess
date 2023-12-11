@@ -33,10 +33,12 @@ class ApprovingCubit extends Cubit<ApprovingState> {
   }
 
   getPlace() async {
+    print('object');
     try {
       emit(ApprovingLoading());
       var response = await crud
           .get('${Applinks.showplace}${sharedPref.getInt('riveId')}/get');
+      print(response);
       if (response['success'] == true) {
         data = DetilsModel.fromJson(response['data']);
 
@@ -45,7 +47,7 @@ class ApprovingCubit extends Cubit<ApprovingState> {
         description.text = data.description!;
         link.text = data.location!;
         phone.text = data.phone!;
-        rating.text = data.rate!;
+        rating.text = data.rate!.toString();
         value = data.category!;
 
         emit(ApprovingSucess());
@@ -53,6 +55,7 @@ class ApprovingCubit extends Cubit<ApprovingState> {
         emit(ApprovingFailure());
       }
     } catch (e) {
+      print(e);
       emit(ApprovingFailure());
     }
   }

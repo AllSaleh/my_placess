@@ -1,4 +1,4 @@
-class ReviewModel {
+class RecomndationModel {
   int? id;
   String? name;
   String? description;
@@ -6,10 +6,12 @@ class ReviewModel {
   String? phone;
   String? location;
   dynamic rate;
+  int? category;
   List<Images>? images;
   bool? isFavorites;
+  int? isApproved;
 
-  ReviewModel(
+  RecomndationModel(
       {id,
       name,
       description,
@@ -17,10 +19,12 @@ class ReviewModel {
       phone,
       location,
       rate,
+      category,
       images,
-      isFavorites});
+      isFavorites,
+      isApproved});
 
-  ReviewModel.fromJson(Map<String, dynamic> json) {
+  RecomndationModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     description = json['description'];
@@ -28,6 +32,7 @@ class ReviewModel {
     phone = json['phone'];
     location = json['location'];
     rate = json['rate'];
+    category = json['category'];
     if (json['images'] != null) {
       images = <Images>[];
       json['images'].forEach((v) {
@@ -35,22 +40,7 @@ class ReviewModel {
       });
     }
     isFavorites = json['is_favorites'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['name'] = name;
-    data['description'] = description;
-    data['type'] = type;
-    data['phone'] = phone;
-    data['location'] = location;
-    data['rate'] = rate;
-    if (images != null) {
-      data['images'] = images!.map((v) => v.toJson()).toList();
-    }
-    data['is_favorites'] = isFavorites;
-    return data;
+    isApproved = json['is_approved'];
   }
 }
 
