@@ -41,16 +41,21 @@ class InformationColumn extends StatelessWidget {
                 height: 30,
               ),
               UberButton(onPressed: () async {
-               
+                final AndroidIntent intent = AndroidIntent(
+                  action: 'action_application_details_settings',
+                  data:
+                      'package:com.ubercab.app', // replace com.example.app with your applicationId
+                );
+                await intent.launch();
 
-                var intent = AndroidIntent(
-                    data: BlocProvider.of<DetilsCubit>(context)
-                        .data
-                        .location
-                        .toString(),
-                    package: "com.ubercab",
-                    action: "action_view");
-                intent.launch();
+                // var intent = AndroidIntent(
+                //     data: BlocProvider.of<DetilsCubit>(context)
+                //         .data
+                //         .location
+                //         .toString(),
+                //     package: "com.ubercab",
+                //     action: "action_view");
+                // intent.launch();
               })
             ],
           ),

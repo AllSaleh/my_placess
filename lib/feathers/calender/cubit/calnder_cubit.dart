@@ -20,12 +20,10 @@ class CalnderCubit extends Cubit<CalnderState> {
     // DateFormat('yyyy-MM-dd').format(selectedDay)
     dateTime = date;
     emit(CalnderChangeDate());
+ 
   }
 
   getCalender() async {
-    // changeDate(dateTime);
-
-    print(dateTime);
     try {
       emit(CalnderLoading());
       var response = await crud.get('${Applinks.showAppoment}$dateTime');
@@ -36,7 +34,7 @@ class CalnderCubit extends Cubit<CalnderState> {
       //   print('object');
       // }
 
-      if (response['message'] == 'OK') {
+      if (response['data'] != null) {
         data.clear();
         data.addAll(response['data']);
         emit(CalnderSucsess());
