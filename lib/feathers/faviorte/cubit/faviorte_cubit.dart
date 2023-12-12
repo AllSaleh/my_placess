@@ -32,12 +32,13 @@ class FaviorteCubit extends Cubit<FaviorteState> {
   }
 
   deletefaviorte(int id) async {
-    var response = await crud.delete('${Applinks.delete}$id/delete');
-    print(response);
-    // if (response['success'] == true) {
-    //   getdata();
-    // } else {
-    //   emit(FaviorteFailure());
-    // }
+    var response = await crud
+        .postdata({'_method': 'delete'}, '${Applinks.delete}$id/delete');
+   
+    if (response['success'] == true) {
+      getdata();
+    } else {
+      emit(FaviorteFailure());
+    }
   }
 }

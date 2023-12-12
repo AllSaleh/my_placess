@@ -58,8 +58,9 @@ class CustomBottomBarAdmin extends StatelessWidget {
                     return AuthButton(
                         horizontal: 25,
                         onPressed: () {
+                        
                           BlocProvider.of<ApprovingCubit>(context)
-                              .approvePlace();
+                              .deletePlace();
                         },
                         title: 'Reject',
                         color: whiteColor,

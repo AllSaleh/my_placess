@@ -12,7 +12,6 @@ class DetilsCubit extends Cubit<DetilsState> {
 
   Crud crud = Crud();
 
-
   DetilsModel data = DetilsModel();
 
   getDetils() async {
@@ -42,13 +41,12 @@ class DetilsCubit extends Cubit<DetilsState> {
   }
 
   deletefaviorte(int id) async {
-    var response = await crud.delete('${Applinks.delete}$id/delete');
+    var response = await crud
+        .postdata({'_method': 'delete'}, '${Applinks.delete}$id/delete');
     if (response['success'] == true) {
       getDetils();
     } else {
       emit(DetilsFalure());
     }
   }
-
-  
 }

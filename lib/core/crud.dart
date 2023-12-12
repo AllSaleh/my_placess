@@ -88,7 +88,7 @@ class Crud {
     }
   }
 
-  postWithFile1(File file, String uri) async {
+  postWithFile1(Map data, File file, String uri) async {
     try {
       var request = http.MultipartRequest('POST', Uri.parse(uri));
       request.headers
@@ -100,6 +100,9 @@ class Crud {
       var muiltpartfile = http.MultipartFile("image", stream, length,
           filename: basename(file.path));
       request.files.add(muiltpartfile);
+      data.forEach((key, value) {
+        request.fields[key] = value;
+      });
       var myrequest = await request.send();
 
       var response = await http.Response.fromStream(myrequest);

@@ -50,7 +50,7 @@ class ProfileCubit extends Cubit<ProfileState> {
 
     image = File(picked.path);
 
-    var response = await crud.postWithFile1(image!, Applinks.getUserAccount);
+    var response = await crud.postWithFile1({},image!, Applinks.getUserAccount);
 
     if (response['success'] == true) {
       getUserAccount();
