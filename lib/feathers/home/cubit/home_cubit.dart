@@ -14,6 +14,7 @@ class HomeCubit extends Cubit<HomeState> {
     try {
       emit(HomeLoading());
       var response = await crud.get(Applinks.poupler);
+      print(response);
 
       if (response['success'] == true) {
         data.addAll(response['data']);

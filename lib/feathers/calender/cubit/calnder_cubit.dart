@@ -23,17 +23,20 @@ class CalnderCubit extends Cubit<CalnderState> {
   }
 
   getCalender() async {
-    changeDate(dateTime);
+    // changeDate(dateTime);
+
+    print(dateTime);
     try {
       emit(CalnderLoading());
       var response = await crud.get('${Applinks.showAppoment}$dateTime');
+      // print(response)
       // print('${Applinks.showAppoment}$dateTime');
 
       // if (response['success'] == false) {
       //   print('object');
       // }
 
-      if (response['data'] != null) {
+      if (response['message'] == 'OK') {
         data.clear();
         data.addAll(response['data']);
         emit(CalnderSucsess());
@@ -41,7 +44,7 @@ class CalnderCubit extends Cubit<CalnderState> {
         emit(CalnderNoCalnder());
       }
     } catch (e) {
-      // print(e);
+      print(e);
       emit(CalnderFailure());
     }
   }

@@ -18,13 +18,14 @@ class CustomCalender extends StatelessWidget {
                 formatButtonVisible: false,
                 titleCentered: true,
               ),
-              calendarStyle: const CalendarStyle(
+              calendarStyle: CalendarStyle(
+                selectedDecoration:
+                    BoxDecoration(color: primaryColor, shape: BoxShape.circle),
                 markerDecoration: BoxDecoration(color: blackColor),
               ),
               selectedDayPredicate: (day) => isSameDay(
                   BlocProvider.of<CalnderCubit>(context).dateTime, day),
               onDaySelected: (selectedDay, focusedDay) {
-            
                 BlocProvider.of<CalnderCubit>(context).changeDate(selectedDay);
                 BlocProvider.of<CalnderCubit>(context).getCalender();
 
