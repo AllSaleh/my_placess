@@ -1,5 +1,6 @@
 abstract class Applinks {
-  static const String baseUrl = 'http://orangered-magpie-961382-builder-preview1-com.preview-domain.com/api';
+  static const String baseUrl = 'http://192.168.96.108:8000/api';
+  // 'http://orangered-magpie-961382-builder-preview1-com.preview-domain.com/api';
 
   //auth
   static const String register = '$baseUrl/register';
